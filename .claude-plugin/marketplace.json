@@ -1,0 +1,14 @@
+{
+  "name": "betterprompt",
+  "owner": {
+    "name": "Aurelio Ochoa Gomez",
+    "email": "aurelioochoagomezz@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "betterprompt",
+      "source": "./",
+      "description": "Turns a rough prompt into a precise, context-grounded one before any work starts"
+    }
+  ]
+}
