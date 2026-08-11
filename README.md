@@ -24,11 +24,11 @@ Most of the cost of a bad result is a vague request. These put one cheap step in
 ## Install
 
 ```bash
-/plugin marketplace add ~/Repos/betterprompt
+/plugin marketplace add aurelioochoa/betterprompt
 /plugin install betterprompt@betterprompt
 ```
 
-Once it's on GitHub, others can use the repo URL in place of the local path.
+To hack on it locally instead, clone the repo and point the marketplace at your working copy — `/plugin marketplace add ~/Repos/betterprompt`. Note that installing copies the files into the plugin cache rather than symlinking them, so edits need a reinstall to take effect.
 
 ## `/better`
 
