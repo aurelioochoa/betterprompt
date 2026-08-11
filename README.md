@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.webp" alt="betterprompt — blurred code resolving into a precise file reference" width="100%">
+  <img src="assets/banner.webp" alt="betterprompt — scattered fragments of a vague request refracted through a prism into a precise prompt naming the file, line, and done-condition" width="100%">
 </p>
 
 # betterprompt
