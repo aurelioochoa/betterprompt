@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.webp" alt="betterprompt — blurred code resolving into a precise file reference" width="100%">
+</p>
+
 # betterprompt
 
 A Claude Code plugin that rewrites a rough prompt into a precise, context-grounded one, shows it to you, and waits for your approval before doing any work.
@@ -31,6 +35,10 @@ Once it's on GitHub, others can use the repo URL in place of the local path.
 ```
 /better fix the auth bug
 ```
+
+<p align="center">
+  <img src="assets/before-after.webp" alt="A blurred 'fix the auth bug' beside a sharp refined prompt naming the file, line, and done-condition" width="90%">
+</p>
 
 Claude reads your conversation so far and the repo, then replies with:
 
