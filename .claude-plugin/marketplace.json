@@ -1,5 +1,6 @@
 {
   "name": "betterprompt",
+  "description": "Prompt sharpening for Claude Code.",
   "owner": {
     "name": "Aurelio Ochoa Gomez",
     "email": "aurelioochoagomezz@gmail.com"
@@ -8,7 +9,9 @@
     {
       "name": "betterprompt",
       "source": "./",
-      "description": "Turns a rough prompt into a precise, context-grounded one before any work starts"
+      "description": "Turns a rough prompt into a precise, context-grounded one before any work starts",
+      "category": "workflow",
+      "tags": ["prompt", "prompt-engineering", "productivity"]
     }
   ]
 }
