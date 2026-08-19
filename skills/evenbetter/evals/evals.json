@@ -1,0 +1,64 @@
+{
+  "skill_name": "evenbetter",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "make the dashboard load faster",
+      "expected_output": "One batched AskUserQuestion round with options naming real candidates, then a refined prompt that states every answer as a fact rather than a hedge.",
+      "assertions": [
+        "Exactly one AskUserQuestion call is made, containing between 1 and 4 questions",
+        "At least one option names a concrete file path or function rather than a category like 'the dashboard code'",
+        "One option per question is labelled '(Recommended)' and appears first",
+        "The refined prompt states the chosen answers as facts, without hedges like 'probably' or 'likely in'",
+        "The output has no 'Open questions' section",
+        "The output ends by asking whether to run the prompt or adjust it first"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "fix the auth bug",
+      "expected_output": "Grounding resolves the referent without spending a question on it. Either no questions are asked, or the questions asked are about the done-condition or scope, not about which file or which test framework.",
+      "files": ["evals/files/session.ts"],
+      "assertions": [
+        "No question asks something the fixture file answers, such as which file contains the bug or what the error type is called",
+        "The refined prompt names session.ts explicitly",
+        "The refined prompt identifies the ordering defect: the refresh token is rotated before the new access token is persisted",
+        "session.ts is unmodified after the run"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "In src/config.ts, change the default timeout from 5000 to 30000 and update the docstring to match.",
+      "expected_output": "An already-precise prompt. Zero questions is the correct outcome; the skill should say so in one line and go straight to a near-identical rewrite.",
+      "assertions": [
+        "Either no AskUserQuestion call is made, or any question asked is about something the prompt genuinely leaves open",
+        "If no questions are asked, the output states in about one line why there was nothing to ask",
+        "The refined prompt preserves both the file, the two values, and the docstring requirement",
+        "The refined prompt does not add requirements the raw prompt did not ask for"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "build me a really nice tetris",
+      "expected_output": "A gauntlet offer first, then a single further batched round that folds the open template slots in with any normal forking question. Two rounds total, never three.",
+      "assertions": [
+        "The first AskUserQuestion call offers a choice between the gauntlet template and a standard refinement",
+        "At most two AskUserQuestion calls are made in total",
+        "If the gauntlet is accepted, the open template slots are asked about in the same batch as any other question rather than in a third round",
+        "If the gauntlet is accepted, the refined prompt contains no unresolved bracketed placeholders such as [ASPECT 3]",
+        "If the gauntlet is accepted, the six template paragraphs appear with their non-slot wording unchanged"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "add rate limiting to the API, and while you're at it clean up the logging and get the docker build under a minute",
+      "expected_output": "A decomposition before any questions: three independent pieces named in order, questions spent only on the first.",
+      "assertions": [
+        "The output names three separate pieces of work rather than merging them into one prompt",
+        "Only one of the three is refined into a 'Refined prompt' block",
+        "Any questions asked concern the piece being refined, not the two deferred pieces",
+        "The output states that the remaining pieces each warrant their own pass"
+      ]
+    }
+  ]
+}

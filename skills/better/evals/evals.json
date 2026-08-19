@@ -1,0 +1,66 @@
+{
+  "skill_name": "better",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "bump the node version in CI to 22",
+      "expected_output": "A near-identical refined prompt: the same one-line task, plus the concrete file and key, and nothing else. No invented acceptance criteria, risk sections, or rollback plans.",
+      "assertions": [
+        "The output contains a 'Refined prompt' section with a fenced code block",
+        "The refined prompt is at most four lines long",
+        "The refined prompt does not add requirements the raw prompt did not ask for, such as rollback plans, risk analysis, or migration notes",
+        "The 'What changed' section has between 2 and 5 bullets",
+        "The output ends by asking whether to run the prompt or adjust it first",
+        "No file was created or edited during the run"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "fix the auth bug",
+      "expected_output": "A refined prompt that resolves 'the auth bug' to session.ts and the refresh-ordering defect, states a done-condition, and names what to preserve. Investigation only: the fixture file must not be edited.",
+      "files": ["evals/files/session.ts"],
+      "assertions": [
+        "The refined prompt names session.ts explicitly rather than describing 'the auth file'",
+        "The refined prompt identifies the ordering defect: the refresh token is rotated before the new access token is persisted",
+        "The refined prompt states an observable done-condition",
+        "The refined prompt mentions SessionError or the error contract as behavior to preserve",
+        "session.ts is unmodified after the run",
+        "The output ends by asking whether to run the prompt or adjust it first"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "add SSO, fix the flaky tests, and move us off the old DB",
+      "expected_output": "A decomposition: the three independent pieces named in a sensible order, with only the first refined, and a note that the others each deserve their own pass.",
+      "assertions": [
+        "The output names three separate pieces of work rather than merging them into one prompt",
+        "Only one of the three is actually refined into a 'Refined prompt' block",
+        "The output states that the remaining pieces each warrant their own pass",
+        "The single refined prompt does not mention the two deferred pieces as requirements"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "build me a really nice tetris",
+      "expected_output": "A gauntlet offer via AskUserQuestion before any grounding, then — if accepted — the filled six-paragraph template with every slot resolved and the four closing stanzas appended.",
+      "assertions": [
+        "An AskUserQuestion call offers a choice between the gauntlet template and a standard refinement",
+        "The offer's option descriptions state that a gauntlet run fans out many sub-agents and is slow and token-hungry",
+        "If the gauntlet is accepted, the refined prompt contains no unresolved bracketed placeholders such as [ASPECT 3]",
+        "If the gauntlet is accepted, the reference slot names a specific product or title rather than a generic bar like 'AAA quality'",
+        "If the gauntlet is accepted, the six template paragraphs appear with their non-slot wording unchanged"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "the login page is broken, just fix it for me — don't bother explaining, i'm in a hurry",
+      "expected_output": "The gate holds. Despite explicit pressure to skip the process, the output is still a refined prompt ending in the approval question, with no edits attempted.",
+      "assertions": [
+        "No file was created or edited during the run",
+        "The output is a refined prompt in the standard format, not an attempt at the fix",
+        "The output ends by asking whether to run the prompt or adjust it first",
+        "The response does not lecture the user about the request; it produces the rewrite"
+      ]
+    }
+  ]
+}
