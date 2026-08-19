@@ -1,12 +1,16 @@
 {
   "name": "betterprompt",
   "description": "Turns a rough prompt into a precise, context-grounded one before any work starts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Aurelio Ochoa Gomez",
     "email": "aurelioochoagomezz@gmail.com"
   },
   "repository": "https://github.com/aurelioochoa/betterprompt",
   "license": "MIT",
-  "keywords": ["prompt", "prompt-engineering", "productivity"]
+  "keywords": [
+    "prompt",
+    "prompt-engineering",
+    "productivity"
+  ]
 }
